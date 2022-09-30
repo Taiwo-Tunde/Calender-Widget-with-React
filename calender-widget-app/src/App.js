@@ -8,15 +8,15 @@ import './App.css';
 
 function App() {
 
-
+ //useState is use to update the initial state to update the DOM of the new changes
   const [date, setDate] = useState(new Date());
  
 
   return (
     <div className="App">
       
-      <h1 className='text-center'>React Calendar with Range</h1>
-      <div className='calendar-container'>
+      <h1>Calendar Widget with React</h1>
+      <div className>
         <Calendar
           onChange={setDate}
           value={date}
@@ -25,16 +25,19 @@ function App() {
           minDate={new Date(2002, 6, 1)}
         />
       </div>
+      {/* conditional rendering between single dates and range selection. The ternery operator will select the p tag to display
+      based on which condition evaluted to be true. */}
+
       {date.length > 0 ? (
-        <p className='text-center'>
-          <span className='bold'>Start:</span>{' '}
+        <p >
+          <span>Start:</span>{' '}
           {date[0].toDateString()}
           &nbsp;|&nbsp;
-          <span className='bold'>End:</span> {date[1].toDateString()}
+          <span>End:</span> {date[1].toDateString()}
         </p>
       ) : (
-        <p className='text-center'>
-          <span className='bold'>Default selected date:</span>{' '}
+        <p>
+          <span>Default selected date:</span>{' '}
           {date.toDateString()}
         </p>
       )}
